@@ -1,0 +1,4 @@
+Setup
+Install Python and libraries
+2025-08-25
+Incomplete

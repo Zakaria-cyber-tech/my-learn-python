@@ -1,0 +1,19 @@
+khzen x = 0
+
+while x < 3:
+    itba3(x)
+    x = x + 1
+
+if x == 3:
+    itba3("وصل ل 3")
+else:
+    itba3("مازال")
+
+wzifaa add(a, b):
+    rj3 a + b
+
+itba3(add(7, 8))
+
+# for loop جديد
+for i in range([10,20,30]):
+    itba3(i)

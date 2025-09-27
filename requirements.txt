@@ -1,0 +1,6 @@
+streamlit==1.50.0
+pandas==2.14.1
+numpy==2.4.0
+ursina==3.7.2
+textblob==0.17.1
+PySimpleGUI==4.60.4
