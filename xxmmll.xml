@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+    <book id="1">
+        <title>Python Basics</title>
+        <author>Zakaria</author>
+        <year>2024</year>
+    </book>
+    <book id="2">
+        <title>Learning C</title>
+        <author>Amina</author>
+        <year>2025</year>
+    </book>
+</library>
