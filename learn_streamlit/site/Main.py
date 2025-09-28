@@ -21,6 +21,6 @@ if st.session_state.activator!="active":
             st.success("✔️​sign in is successfully")
             st.info("Click The arrow To open sidebar")
         else:
-            st.error("❌​​The user or password is not ivable")
+            st.error("❌​​The user or password is not invalid")
 else:
     st.warning("⚠️Please Go To Pages...")
