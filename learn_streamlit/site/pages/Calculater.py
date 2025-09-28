@@ -1,6 +1,8 @@
 import streamlit as st
 import time
 
+if "activator" not in st.session_state:
+    st.session_state.activator=""
 
 st.sidebar.title("Configuration:")
 
@@ -19,37 +21,38 @@ with st.sidebar:
 st.header("Speed Calculater")
 with st.spinner("Loading..."):
     
-    if sel=="+":
-        st.write("Let's To +")
-        first=st.number_input("Enter The First Number:", min_value=0, max_value=999999999999,step=1)
-        last=st.number_input("Enter The Last Number:", min_value=0, max_value=999999999999,step=1)
-        btn=st.button("Press To Calcule")
-        if btn:
-            result=first + last
-            st.header(result)
-    elif sel=="-":
-        st.write("Let's To -")
-        first=st.number_input("Enter The First Number:", min_value=0, max_value=999999999999,step=1)
-        last=st.number_input("Enter The Last Number:", min_value=0, max_value=999999999999,step=1)
-        btn=st.button("Press To Calcule")
-        if btn:
-            result=first - last
-            st.header(result)
-    elif sel=="x":
-        st.write("Let's To x")
-        first=st.number_input("Enter The First Number:", min_value=0, max_value=999999999999,step=1)
-        last=st.number_input("Enter The Last Number:", min_value=0, max_value=999999999999,step=1)
-        btn=st.button("Press To Calcule")
-        if btn:
-            result=first * last
-            st.header(result)
-    elif sel=="/":
-        st.write("Let's To /")
-        first=st.number_input("Enter The First Number:", min_value=0, max_value=999999999999,step=1)
-        last=st.number_input("Enter The Last Number:", min_value=0, max_value=999999999999,step=1)
-        btn=st.button("Press To Calcule")
-        if btn:
-            result=first / last
-            st.header(result)
-
-
+    if st.session_state.activator=="active":
+            if sel=="+":
+                st.write("Let's To +")
+                first=st.number_input("Enter The First Number:", min_value=0, max_value=999999999999,step=1)
+                last=st.number_input("Enter The Last Number:", min_value=0, max_value=999999999999,step=1)
+                btn=st.button("Press To Calcule")
+                if btn:
+                    result=first + last
+                    st.header(result)
+            elif sel=="-":
+                st.write("Let's To -")
+                first=st.number_input("Enter The First Number:", min_value=0, max_value=999999999999,step=1)
+                last=st.number_input("Enter The Last Number:", min_value=0, max_value=999999999999,step=1)
+                btn=st.button("Press To Calcule")
+                if btn:
+                    result=first - last
+                    st.header(result)
+            elif sel=="x":
+                st.write("Let's To x")
+                first=st.number_input("Enter The First Number:", min_value=0, max_value=999999999999,step=1)
+                last=st.number_input("Enter The Last Number:", min_value=0, max_value=999999999999,step=1)
+                btn=st.button("Press To Calcule")
+                if btn:
+                    result=first * last
+                    st.header(result)
+            elif sel=="/":
+                st.write("Let's To /")
+                first=st.number_input("Enter The First Number:", min_value=0, max_value=999999999999,step=1)
+                last=st.number_input("Enter The Last Number:", min_value=0, max_value=999999999999,step=1)
+                btn=st.button("Press To Calcule")
+                if btn:
+                    result=first / last
+                    st.header(result)
+    else:
+        st.warning("⚠️ Please log in from the main page")
