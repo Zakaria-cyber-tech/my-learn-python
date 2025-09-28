@@ -5,7 +5,7 @@ if "activator" not in st.session_state:
 
 st.sidebar.title("واش مكتفهمش قلت لك سير تقرى")
 
-st.write("#غير تخربيقة جاتني سخن عليا مخي")
+st.title("غير تخربيقة جاتني سخن عليا مخي")
 
 if st.session_state.activator=="active":
     if "text_list" not in st.session_state:

@@ -4,7 +4,7 @@ import pandas as pd
 if "activator" not in st.session_state:
     st.session_state.activator=""
 
-st.write("#فاطمة شوفيني راني طاير")
+st.title("فاطمة شوفيني راني طاير")
 
 @st.cache_data
 def load_file(filer):
