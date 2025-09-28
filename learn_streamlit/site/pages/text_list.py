@@ -5,7 +5,6 @@ if "activator" not in st.session_state:
 
 st.sidebar.title("واش مكتفهمش قلت لك سير تقرى")
 
-st.title("غير تخربيقة سخن عليا مخي")
 
 if st.session_state.activator=="active":
     if "text_list" not in st.session_state:
@@ -20,4 +19,5 @@ if st.session_state.activator=="active":
 
     st.write("Text:", st.session_state.text_list)
 else:
+    st.title("غير تخربيقة سخن عليا مخي")
     st.warning("⚠️ Please log in from the main page")

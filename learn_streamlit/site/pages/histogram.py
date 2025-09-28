@@ -4,7 +4,6 @@ import pandas as pd
 if "activator" not in st.session_state:
     st.session_state.activator=""
 
-st.title("فاطمة شوفيني راني طاير")
 
 @st.cache_data
 def load_file(filer):
@@ -34,4 +33,5 @@ if st.session_state.activator=="active":
         st.text_input("Enter The Text")
         st.write("هاذه النافذة غير مهمة")
 else:
+    st.title("فاطمة شوفيني راني طاير")
     st.warning("⚠️ Please log in from the main page")
