@@ -41,7 +41,7 @@ tab1, tab2 = st.tabs(["Sign in", "New account"])
 
 if st.session_state.activator != "active":
     with tab1:
-        user = st.text_input("Enter your name (the login for admins)")
+        user = st.text_input("Enter your name")
         password = st.text_input("Password", type="password")
         if st.button("Sign in"):
             if user in users and users[user].get("password") == password:
