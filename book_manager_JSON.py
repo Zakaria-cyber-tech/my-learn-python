@@ -23,7 +23,6 @@ def save_books(books):
     with open(BOOKS_FILE, 'w') as f:
         json.dump(books, f, indent=4)
         
-#....................Start Class...............................
 class Books:
     def __init__(self, title, author, id, status):
         self.title = title
@@ -57,7 +56,6 @@ class Books:
                 print("Enter 'active' Or 'inactive' please.")
         time.sleep(1)
 
-#...................End Class........................
 
 def create_book():
     title = input("Enter The Title of Book: ")
