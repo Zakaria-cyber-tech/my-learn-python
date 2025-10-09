@@ -33,5 +33,5 @@ if st.session_state.activator=="active":
         st.text_input("Enter The Text")
         st.write("هاذه النافذة غير مهمة")
 else:
-    st.title("فاطمة شوفيني راني طاير")
+    st.title("يهديك ربي لما سجل الدخول")
     st.warning("⚠️ Please log in from the main page")
