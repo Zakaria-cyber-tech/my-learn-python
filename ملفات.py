@@ -2,11 +2,11 @@ import time
 
 num_words=0
 while True:
-    fn=input("Enter The Name of File(Enter STOP To exit):  ")
+    fn=input("Enter The Name of File:  ")
     with open(fn,"a",encoding="utf-8") as f:
-        fz=input("Enter the consept:  ")
+        fz=input("Enter the consept (Enter 'Read' To exit):  ").lower()
         f.write(f"{fz}\n")
-        if fz=="stop":
+        if fz=="read":
             with open(fn,"r") as h:
                 print(h.read())
                 num_line=h.readlines()
