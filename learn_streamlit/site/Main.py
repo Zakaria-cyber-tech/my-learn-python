@@ -96,7 +96,7 @@ with st.spinner("Looding..."):
                 del users[del_user]
                 if save_users(users):
                     st.success(f"✅ User '{del_user}' deleted successfully.")
-                    st.rerun()  # باش يعاود يحدث القائمة مباشرة
+                    st.rerun()
             else:
                 st.error("❌ User not found.")
         st.write(users)
