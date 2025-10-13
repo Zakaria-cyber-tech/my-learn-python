@@ -3,17 +3,10 @@ import json
 import os
 import time
 
-st.set_page_config(page_title="WELCOME")
+st.set_page_config(page_title="WELCOME To Zakaeia siteweb")
 
 DATA_FILE = os.path.abspath(os.path.join(os.path.dirname(__file__), "user_list.json"))
 
-admin_users=[]
-try:
-    if os.path.exists(DATA_FILE):
-        with open(DATA_FILE, "r", encoding="utf-8") as f:
-            admin_users=json.load(f)
-except Exception as e:
-    st.error(f"Error loading users file: {e}")
 
 
 def load_users():
@@ -42,49 +35,69 @@ users = load_users()
 
 if "activator" not in st.session_state:
     st.session_state.activator = ""
+with st.spinner("Looding..."):
+    placeholder = st.empty()
+    with placeholder.container():
+        st.sidebar.success("Choose The Tabs...")
 
-placeholder = st.empty()
-with placeholder.container():
-    st.sidebar.success("Choose The Tabs...")
+        st.write("# Welcome To My site:")
 
-    st.write("# Welcome To My site:")
+        tab1, tab2 = st.tabs(["Sign in", "New account"])
 
-    tab1, tab2 = st.tabs(["Sign in", "New account"])
+        if st.session_state.activator != "active" and st.session_state.activator != "admin":
+            with tab1:
+                user = st.text_input("Enter your name")
+                password = st.text_input("Password", type="password")
+                if st.button("Sign in"):
+                    if user=="admin" and password=="admin":
+                        st.session_state.activator = "admin"
+                        st.success("✔️ Welecom Admin You are the best")
+                    elif user in users and users[user].get("password") == password:
+                        st.session_state.activator = "active"
+                        st.success("✔️ Sign in successful")
+                        st.info("Click the arrow to open sidebar")
+                    else:
+                        st.error("❌ The username or password is invalid")
+            with tab2:
+                new_user = st.text_input("New username", key="new_user")
+                new_password = st.text_input("New password", type="password", key="new_password")
+                if st.button("Create account"):
+                    if new_user=="admin" or new_password=="admin":
+                        st.error("❌This User is usag with admin(pleas Try another user)")
+                    elif not new_user:
+                        st.error("Please enter a username")
+                    elif new_user in users:
+                        st.error("User already exists")
+                    else:
+                        users[new_user] = {"password": new_password}
+                        if save_users(users):
+                            st.success("Account created successfully")
+        elif st.session_state.activator=="active":
+            if st.button("Reflesh"):
+                st.rerun()
+            st.warning("⚠️ Please go to Pages...")
+            if st.button("sign out"):
+                st.session_state.activator=""
+                st.rerun()
+    if st.session_state.activator=="admin":
+        time.sleep(2)
+        placeholder.empty()
+        st.title("Hi Admin")
+        if st.button("reflesh"):
+            st.rerun()
+        if st.button("sign out"):
+            st.session_state.activator=""
+            st.rerun()
+        st.subheader("🗑️ Delete a user")
+        del_user = st.text_input("Enter username to delete:")
 
-    if st.session_state.activator != "active" and st.session_state.activator != "admin":
-        with tab1:
-            user = st.text_input("Enter your name")
-            password = st.text_input("Password", type="password")
-            if st.button("Sign in"):
-                if user=="admin" and password=="admin":
-                    st.session_state.activator = "admin"
-                    st.success("✔️ Welecom Admin You are the best")
-                elif user in users and users[user].get("password") == password:
-                    st.session_state.activator = "active"
-                    st.success("✔️ Sign in successful")
-                    st.info("Click the arrow to open sidebar")
-                else:
-                    st.error("❌ The username or password is invalid")
-
-        with tab2:
-            new_user = st.text_input("New username", key="new_user")
-            new_password = st.text_input("New password", type="password", key="new_password")
-            if st.button("Create account"):
-                if new_user=="admin":
-                    st.error("❌This User is usag with admin(pleas Try another user)")
-                elif not new_user:
-                    st.error("Please enter a username")
-                elif new_user in users:
-                    st.error("User already exists")
-                else:
-                    users[new_user] = {"password": new_password}
-                    if save_users(users):
-                        st.success("Account created successfully")
-    elif st.session_state.activator=="active":
-        st.warning("⚠️ Please go to Pages...")
-if st.session_state.activator=="admin":
-    time.sleep(2)
-    placeholder.empty()
-    st.title("Hi Admin")
-    st.write(admin_users)
+        if st.button("Delete user"):
+            if del_user in users:
+                del users[del_user]
+                if save_users(users):
+                    st.success(f"✅ User '{del_user}' deleted successfully.")
+                    st.rerun()  # باش يعاود يحدث القائمة مباشرة
+            else:
+                st.error("❌ User not found.")
+        st.write(users)
 
