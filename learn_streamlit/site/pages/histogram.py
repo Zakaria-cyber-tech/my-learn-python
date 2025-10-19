@@ -14,7 +14,7 @@ st.sidebar.title("List")
 with st.sidebar:
     st.header("وسير تقرى")
 
-if st.session_state.activator=="active":
+if st.session_state.activator=="active" or st.session_state.activator=="admin":
     tab1, tab2, tab3=st.tabs(["Upload", "Show", "chat"])
 
     with tab1:

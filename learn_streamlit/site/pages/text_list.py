@@ -6,7 +6,7 @@ if "activator" not in st.session_state:
 st.sidebar.title("واش مكتفهمش قلت لك سير تقرى")
 
 
-if st.session_state.activator=="active":
+if st.session_state.activator=="active" or st.session_state.activator=="admin":
     if "text_list" not in st.session_state:
         st.session_state.text_list=[]
 

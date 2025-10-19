@@ -21,7 +21,7 @@ with st.sidebar:
 st.header("Speed Calculater")
 with st.spinner("Loading..."):
     
-    if st.session_state.activator=="active":
+    if st.session_state.activator=="active" or st.session_state.activator=="admin":
             if sel=="+":
                 st.write("Let's To +")
                 first=st.number_input("Enter The First Number:", min_value=0, max_value=999999999999,step=1)
