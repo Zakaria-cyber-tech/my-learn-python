@@ -48,7 +48,7 @@ with st.spinner("Looding..."):
             with tab1:
                 user = st.text_input("Enter your name")
                 password = st.text_input("Password", type="password")
-                if st.button("Sign in"):
+                if st.button("Sign in🔑"):
                     if user=="admin" and password=="admin":
                         st.session_state.activator = "admin"
                         st.success("✔️ Welecom Admin You are the best")
