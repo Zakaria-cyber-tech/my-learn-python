@@ -25,7 +25,7 @@ def read_json(file):
 def read_image(file):
     return st.image(file)
 
-if st.session_state.activator=="active":
+if st.session_state.activator=="active" or st.session_state.activator=="admin":
     st.title("إفتح بأمان 🔒")
     tab1, tab2, tab3, tab4,tab5=st.tabs(["TXT","Exel","CSV","JSON","IMAGES"])
     with tab1:
