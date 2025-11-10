@@ -5,7 +5,8 @@ if "activator" not in st.session_state:
     st.session_state.activator=""
 
 st.sidebar.title("Configuration:")
-with st.slidebar:
+
+with st.sidebar:
     stars=st.selectbox("قيم موقع زكرياء",["1/5","2/5","3/5","4/5","5/5"])
 
 if st.session_state.activator="active" or st.session_state.activator="admin":
