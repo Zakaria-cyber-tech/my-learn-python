@@ -7,22 +7,20 @@ if "activator" not in st.session_state:
 st.sidebar.title("Configuration:")
 
 with st.sidebar:
-    stars=st.selectbox("قيم موقع زكرياء",["1/5","2/5","3/5","4/5","5/5"])
-
-if st.session_state.activator="active" or st.session_state.activator="admin":
-    with st.sidebar:
+    if st.session_state.activator=="active" or st.session_state.activator=="admin":
         sel=st.selectbox("Choose The Type of calculate:", ["+", "-", "x", "/"])
-        if stars=="1/5" or stars=="2/5":
+    stars=st.selectbox("قيم موقع زكرياء",["1/5","2/5","3/5","4/5","5/5"])
+    if stars=="1/5" or stars=="2/5":
             st.write("Thanks For Using My sitweb")
         elif stars=="3/5":
             st.write("**I LOVE YOU**")
         else:
             st.write("OOOOOOOOh Thanks")
+        
     
 
 st.header("Speed Calculater")
 with st.spinner("Loading..."):
-    
     if st.session_state.activator=="active" or st.session_state.activator=="admin":
             if sel=="+":
                 st.write("Let's To +")
