@@ -12,7 +12,7 @@ def load_file(filer):
 st.sidebar.title("List")
 
 with st.sidebar:
-    st.header("وسير تقرى")
+    st.header("You forgot to rate us")
 
 if st.session_state.activator=="active" or st.session_state.activator=="admin":
     tab1, tab2, tab3=st.tabs(["Upload", "Show", "chat"])

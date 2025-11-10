@@ -35,6 +35,8 @@ users = load_users()
 
 if "activator" not in st.session_state:
     st.session_state.activator = ""
+
+#start
 with st.spinner("Looding..."):
     placeholder = st.empty()
     with placeholder.container():
@@ -56,6 +58,8 @@ with st.spinner("Looding..."):
                         st.session_state.activator = "active"
                         st.success("✔️ Sign in successful")
                         st.info("Click the arrow to open sidebar")
+                        time.sleep(3)
+                        st.rerun()
                     else:
                         st.error("❌ The username or password is invalid")
             with tab2:

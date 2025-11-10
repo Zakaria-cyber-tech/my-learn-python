@@ -3,7 +3,7 @@ import streamlit as st
 if "activator" not in st.session_state:
     st.session_state.activator=""
 
-st.sidebar.title("واش مكتفهمش قلت لك سير تقرى")
+st.sidebar.title("تحديث قادم...")
 
 
 if st.session_state.activator=="active" or st.session_state.activator=="admin":
@@ -19,5 +19,5 @@ if st.session_state.activator=="active" or st.session_state.activator=="admin":
 
     st.write("Text:", st.session_state.text_list)
 else:
-    st.title("غير تخربيقة سخن عليا مخي")
+    st.title("ليس مهم")
     st.warning("⚠️ Please log in from the main page")
