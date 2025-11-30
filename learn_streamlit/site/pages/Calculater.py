@@ -12,9 +12,9 @@ with st.sidebar:
     stars=st.selectbox("قيم موقع زكرياء",["1/5","2/5","3/5","4/5","5/5"])
     if stars=="1/5" or stars=="2/5":
             st.write("Thanks For Using My sitweb")
-        elif stars=="3/5":
+    elif stars=="3/5":
             st.write("**I LOVE YOU**")
-        else:
+    else:
             st.write("OOOOOOOOh Thanks")
         
     
