@@ -77,12 +77,27 @@ with st.spinner("Looding..."):
                         if save_users(users):
                             st.success("Account created successfully")
         elif st.session_state.activator=="active":
-            if st.button("Reflesh"):
-                st.rerun()
-            st.warning("⚠️ Please go to Pages...")
-            if st.button("sign out"):
-                st.session_state.activator=""
-                st.rerun()
+            tab11, tab22=st.tabs(["Main", "delet user"])
+            with tab11:
+                if st.button("Reflesh"):
+                    st.rerun()
+                st.warning("⚠️ Please go to Pages...")
+                if st.button("sign out"):
+                    st.session_state.activator=""
+                    st.rerun()
+            with tab22:
+                user_del=st.text_input("Enter your user To verify:")
+                user_pass_del=st.text_input("Enter your password")
+                if st.button("Ok."):
+                    if user_del in users and users[user_del].get("password")==user_pass_del:
+                        del users[user_del]
+                        if save_users(users):
+                            st.success("✅ Del success, after 2sec you are sign out.")
+                            st.session_state.activator=""
+                            time.sleep(2)
+                            st.rerun()
+                    else:
+                        st.error("⚠️ This user is not found,check your information")
     if st.session_state.activator=="admin":
         time.sleep(2)
         placeholder.empty()
@@ -101,6 +116,8 @@ with st.spinner("Looding..."):
                 if save_users(users):
                     st.success(f"✅ User '{del_user}' deleted successfully.")
                     st.rerun()
+                else:
+                    st.error("❌ Error in save;pleas try again.")
             else:
                 st.error("❌ User not found.")
         st.write(users)
