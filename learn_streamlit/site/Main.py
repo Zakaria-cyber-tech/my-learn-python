@@ -43,10 +43,9 @@ with st.spinner("Looding..."):
         st.sidebar.success("Choose The Tabs...")
 
         st.write("# Welcome To My site:")
-
-        tab1, tab2 = st.tabs(["Sign in", "New account"])
-
+        
         if st.session_state.activator != "active" and st.session_state.activator != "admin":
+            tab1, tab2 = st.tabs(["Sign in", "New account"])
             with tab1:
                 user = st.text_input("Enter your name")
                 password = st.text_input("Password", type="password")
